@@ -1,9 +1,19 @@
 import React, { Component } from "react";
+import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Home from "../home/Home";
 import "./login.css";
-export default class Login extends Component{
+ class Login extends Component{
     
-    render(){
+    handelClick =()=>{
+    this.props.history.push("/")
+
+    };
+    
+   
+          render() {
+    
+    
         return(
     <div class="container">
     <div class="row">
@@ -31,7 +41,7 @@ export default class Login extends Component{
                         <div class="col-lg-12 loginbttm">
                             
                             <div class="col-lg-6 login-btm login-button">
-                                <button onClick={Home} class="btn btn-outline-primary">LOGIN</button>
+                                <button onClick={this.handelClick} class="btn btn-outline-primary">LOGIN</button>
                             </div>
                         </div>
                     </form>
@@ -42,8 +52,9 @@ export default class Login extends Component{
     </div>  
 </div>
 );
-    }
-    
-    
-
+ }   
 }
+
+export default withRouter(Login)
+
+    
